@@ -1,0 +1,20 @@
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
+
+    RewriteEngine On
+
+    # Igore real files (images, stylesheets etc.)
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule (.*) - [NC,L]
+
+    # Rewrite 1 - For request via www.student.bth.se
+    RewriteCond %{HTTP_HOST} ^www\.student\.bth\.se$ [NC]
+    RewriteRule (.*) /~sohe20/dbwebb-kurser/mvc/me/ci/app/public/index.php/$1 [NC,L]
+
+    # Rewrite 2 - For other requests
+    RewriteCond %{HTTP_HOST} !^www\.student\.bth\.se$ [NC]
+    RewriteRule (.*) index.php/$1 [NC,L]
+</IfModule>
