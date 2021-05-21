@@ -9,8 +9,8 @@ use Illuminate\Database\Eloquent\Model;
 * Columns in the table Highscores
 *
 * @package App\Models
-* @property string $name
-* @property string $score
+* @property string $username
+* @property string $coins
 * @method static Builder orderBy(string $column, string $direction)
 */
 
@@ -25,10 +25,10 @@ class Highscores extends Model
     {
         $scores = [];
         /* @phpstan-ignore-next-line */
-        foreach (Highscores::orderBy('score', 'DESC')->get() as $score) {
+        foreach (Highscores::orderBy('coins', 'DESC')->get() as $score) {
             array_push($scores, [
-                'name' => $score->name,
-                'score' => $score->score,
+                'username' => $score->username,
+                'coins' => $score->coins,
             ]);
         }
 

@@ -31832,7 +31832,8 @@ video {
 }
 
 body {
-  background-color: #eee;
+  z-index: 0;
+  background-color: #000;
   font-size: 1.3rem;
 }
 
@@ -31868,6 +31869,18 @@ h1 {
 .content {
   display: flex;
   justify-content: center;
+  z-index: 1;
+}
+
+.large-container {
+  margin-top: 10vh;
+  width: 70%;
+  height: 600px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 40px;
 }
 
 .container {
@@ -31880,6 +31893,55 @@ h1 {
 
 .result {
   height: 130px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.die {
+  height: 130px
+}
+
+.cover {
+  width: 50%;
+  height: 100%;
+  /* background-color: #000;
+    opacity: 0.3; */
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.reg,
+.login {
+  height: 70%;
+  width: 70%;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+label,
+input {
+  margin-top: 5px;
+  padding: 5px;
+  border-radius: 40px;
+}
+
+input {
+  background-color: #eee;
+}
+
+.btn {
+  margin-left: 15%;
+  border-radius: 10px;
+  width: 70%;
+  color: #fff;
+  background-color: red;
+  margin-top: 2em;
+  padding: 0.5em;
 }
 
 .button {
@@ -31890,6 +31952,14 @@ h1 {
   margin: 0.5em;
   border-radius: 10px;
   font-size: 1.2rem;
+}
+
+hr{
+  border: none;
+  border-left: 3px solid hsla(200, 20%, 40%,100);
+  color: #000;
+  height: 90%;
+  width: 4px;
 }
 
 @media (max-width: 668px) {

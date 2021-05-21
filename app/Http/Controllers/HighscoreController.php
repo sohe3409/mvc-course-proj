@@ -25,8 +25,8 @@ class HighscoreController extends Controller
     {
         $hsDb = new Highscores();
 
-        $hsDb->name = $request->input('name');
-        $hsDb->score = $request->input('score');
+        $hsDb->username = $request->input('username');
+        $hsDb->coins = $request->input('coins');
         $hsDb->save();
 
         return redirect()->route('highscores');

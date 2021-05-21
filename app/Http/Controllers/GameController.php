@@ -27,21 +27,25 @@ class GameController extends Controller
     {
         $action = $request->input('action');
         $message = "";
+        $result = [];
 
         if ($action === "Start!") {
             session(['dices' => $request->input('dices')]);
             $hand = new DiceHand((int)session('dices'));
             $hand->roll();
+            $result = $hand->result;
             $sum = $hand->sum;
         } elseif ($action === "Roll again") {
             $hand = new DiceHand((int)session('dices'));
             $hand->roll();
+            $result = $hand->result;
             $sum = $hand->sum;
         } elseif ($action === "New round") {
             session(['score' => 0]);
             session(['compScore' => 0]);
             $hand = new DiceHand((int)session('dices'));
             $hand->roll();
+            $result = $hand->result;
             $sum = $hand->sum;
         } elseif ($action === "Stop") {
             $score = $request->input('score');
@@ -78,6 +82,7 @@ class GameController extends Controller
         return view('diceGame', [
             'message' => $message,
             'sum' => $sum ?? "def",
+            'result' => $result ?? "def",
             'compScore' => $compScore ?? "def"
         ]);
     }

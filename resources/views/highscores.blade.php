@@ -11,14 +11,14 @@
             <table style="width:100%">
                 <tr>
                     <th>Rank</th>
-                    <th>Name</th>
-                    <th>Score</th>
+                    <th>Username</th>
+                    <th>Coins</th>
                 </tr>
                 @foreach ($scores as $score)
                     <tr style="text-align: center">
                         <td>{{ $rank }}</td>
-                        <td>{{ $score['name'] }}</td>
-                        <td>{{ $score['score'] }}</td>
+                        <td>{{ $score['username'] }}</td>
+                        <td>{{ $score['coins'] }}</td>
                     </tr>
                     @php
                         $rank += 1

@@ -22,6 +22,9 @@
         <li>
             <a href="{{ route('highscores') }}">High Scores</a>
         </li>
+        <li>
+            <a href="{{ route('register') }}">reg</a>
+        </li>
       </ul>
     </nav>
     @yield('content')

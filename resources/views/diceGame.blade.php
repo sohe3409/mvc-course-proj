@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="content">
+      <div class="large-container">
         <div class="container">
           <?php
           $current = session('score');
@@ -22,7 +23,12 @@
               $status = "Total score: " . $total;
           }?>
           <div class="result">
-              <p><?= $sum ?></p>
+            @foreach ($result as $res)
+                @php
+                    $img = "images/" . $res . ".jpg"
+                @endphp
+                <img class:"die" src="{{ URL::asset($img)}}" alt="Image"/>
+            @endforeach
               <p><?= $status ?></p>
               <p><?= $message ?></p>
           </div>
@@ -56,5 +62,6 @@
 
 
         </div>
+      </div>
     </div>
 @endsection
