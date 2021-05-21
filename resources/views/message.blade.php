@@ -4,6 +4,7 @@
     <div class="content">
         <div class="container">
             <p>{{ $message }}</p>
+            <p>{{ var_dump(Session::all()) }}</p>
         </div>
     </div>
 @endsection

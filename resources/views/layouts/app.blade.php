@@ -9,23 +9,23 @@
 
 <body>
     <nav>
-      <ul>
-        <li>
-          <a href="{{ route('index') }}">Home</a>
-        </li>
-        <li>
-          <a href="{{ route('hello') }}">Hello</a>
-        </li>
-        <li>
-          <a href="{{ route('game') }}">Game 21</a>
-        </li>
-        <li>
-            <a href="{{ route('highscores') }}">High Scores</a>
-        </li>
-        <li>
-            <a href="{{ route('register') }}">reg</a>
-        </li>
-      </ul>
+        <ul>
+          <li>
+              <a href="{{ route('login') }}">Login</a>
+          </li>
+          <li>
+            <a href="{{ route('game') }}">Game 21</a>
+          </li>
+          <li>
+              <a href="{{ route('highscores') }}">High Scores</a>
+          </li>
+        </ul>
+        @if (session('account'))
+        <form style="float: right" action="{{ url('/game') }}" method="post">
+          @csrf
+          <input class="logout" type="submit" name="action" value="Logout">
+        </form>
+      @endif
     </nav>
     @yield('content')
 </body>

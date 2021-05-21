@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Routing\Redirector;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Dice\Dice;
@@ -11,15 +12,17 @@ use App\Models\Dice\GraphicalDice;
 class GameController extends Controller
 {
 
-    public function playGame()
+    public function playGame(Request $request)
     {
-        session(['user' => 0]);
-        session(['computer' => 0]);
-        session(['score' => 0]);
-        session(['compScore' => 0]);
+        if (session("account")) {
+          session(['user' => 0]);
+          session(['computer' => 0]);
+          session(['score' => 0]);
+          session(['compScore' => 0]);
+        }
 
         return view('game', [
-            'message' => "Choose one or two dices to play with!"
+          'message' => "Choose one or two dices to play with!"
         ]);
     }
 
@@ -72,7 +75,7 @@ class GameController extends Controller
             }
 
             $sum = ("Computer score: "  . $compScore);
-        } elseif ($action === "End game") {
+        } elseif ($action === "End game" || $action === "Logout") {
             $request->session()->flush();
             return view('message', [
                 'message' => "Game ended!",
