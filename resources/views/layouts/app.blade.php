@@ -11,9 +11,6 @@
     <nav>
         <ul>
           <li>
-              <a href="{{ route('login') }}">Login</a>
-          </li>
-          <li>
             <a href="{{ route('game') }}">Game 21</a>
           </li>
           <li>
@@ -21,11 +18,13 @@
           </li>
         </ul>
         @if (session('account'))
-        <form style="float: right" action="{{ url('/game') }}" method="post">
+        <form style="float: right" action="{{ url('/login') }}" method="post">
           @csrf
           <input class="logout" type="submit" name="action" value="Logout">
         </form>
-      @endif
+        @else
+            <a style="text-align: center; height: 50px" class="logout" href="{{ route('login') }}">Login</a>
+        @endif
     </nav>
     @yield('content')
 </body>

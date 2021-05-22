@@ -6,6 +6,7 @@ use Illuminate\Routing\Redirector ;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Highscores;
+use App\Models\Users;
 
 class HighscoreController extends Controller
 {
@@ -14,6 +15,7 @@ class HighscoreController extends Controller
         $hsDb = new Highscores();
 
         $scores = $hsDb->getHighscores();
+
 
         return view('highscores', [
             'title' => "Highscores",
@@ -26,7 +28,7 @@ class HighscoreController extends Controller
         $hsDb = new Highscores();
 
         $hsDb->username = $request->input('username');
-        $hsDb->coins = $request->input('coins');
+        $hsDb->score = $request->input('score');
         $hsDb->save();
 
         return redirect()->route('highscores');

@@ -34,7 +34,7 @@ class Users extends Model
         return $users;
     }
 
-    public function getUsersData($username)
+    public function getUserData($username)
     {
         $users = [];
 

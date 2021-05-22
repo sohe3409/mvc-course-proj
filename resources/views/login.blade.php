@@ -11,7 +11,7 @@
     <div class="large-container" style="background: url({{ URL::asset('images/coins.jpg')}})">
         <div class="cover">
               <!-- Login-->
-              <h2 style="font-size: 1.7em; font-weight: bolder">Login</h2>
+              <h2 style="font-size: 1.7em; color: #333; font-weight: bolder">Login</h2>
               <br>
                 <form class="login" method="post" action="{{ url('/login') }}">
                     @csrf
@@ -24,10 +24,10 @@
                     <button type="submit" name="action" value="login" class="btn">Login</button>
                 </form>
         </div>
-        <hr>
+        <hr class="logreg">
         <div class="cover">
               <!-- Registration-->
-              <h2 style="font-size: 1.7em; font-weight: bolder">Register</h2>
+              <h2 style="font-size: 1.7em; color: #333; font-weight: bolder">Register</h2>
               <br>
                 <form class="reg" method="post" action="{{ url('/login') }}">
                     @csrf

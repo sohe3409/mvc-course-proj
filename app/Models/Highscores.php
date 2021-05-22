@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 *
 * @package App\Models
 * @property string $username
-* @property string $coins
+* @property string $score
 * @method static Builder orderBy(string $column, string $direction)
 */
 
@@ -25,10 +25,10 @@ class Highscores extends Model
     {
         $scores = [];
         /* @phpstan-ignore-next-line */
-        foreach (Highscores::orderBy('coins', 'DESC')->get() as $score) {
+        foreach (Highscores::orderBy('score', 'DESC')->get() as $score) {
             array_push($scores, [
                 'username' => $score->username,
-                'coins' => $score->coins,
+                'score' => $score->score,
             ]);
         }
 

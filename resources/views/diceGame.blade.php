@@ -2,7 +2,28 @@
 
 @section('content')
     <div class="content">
-        <div class="container">
+        <div class="acc-container">
+            <h1>Make a bet below!</h1>
+            <hr class="hr-two">
+            <p>Your amount of coins: </p>
+            <span class="coins">
+                <img style="height: 60px; margin-right: 3px; padding: 0.3em" src="{{ URL::asset('images/coin.jpg')}}">
+                <p style="font-size: 1.7em; font-weight: bolder">{{ $user['coins'] }}</p>
+            </span>
+            @if( $user['coins'] > 0)
+                <br>
+                <form action="{{ url('/highscores') }}" method="post">
+                    @csrf
+                    <label for="bet">Amount of coins:  </label>
+                    <input type="number" style:"margin-left: 10px" name="bet" min="1" max="{{ $user['coins'] }}" required><br>
+
+                    <input class="start" style:"width: 100%" type="submit" name="action" value="BET">
+                </form>
+            @else
+                <p class="score-msg">You must have won more rounds than the computer to save your score.</p>
+            @endif
+        </div>
+        <div class="game-container">
             <?php
             $current = session('score');
             $current += (int)$sum;

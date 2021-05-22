@@ -31,13 +31,11 @@ class LoginController extends Controller
 
             if ($val === true) {
                 session(['account' => $request->input('username')]);
-                return back()->withErrors([
-                  'message' => "Hej"
-                ]);
+                return redirect()->route('game');
             }
             if ($val === false) {
                 return back()->withErrors([
-                  'message' => "Nej"
+                  'message' => "The username or password is wrong."
                 ]);
             }
 
@@ -45,13 +43,13 @@ class LoginController extends Controller
 
             if ($user->checkUsername($request->input('username')) === false) {
                 return back()->withErrors([
-                    'message' => "Username is already taken"
+                    'message' => "This username is already taken."
                 ]);
             }
 
             if ($request->input('password') !== $request->input('confirm')) {
                 return back()->withErrors([
-                    'message' => "Your passwords don't match"
+                    'message' => "The password does not match."
                 ]);
             }
 
@@ -60,7 +58,11 @@ class LoginController extends Controller
             $user->coins = 10;
             $user->save();
 
-            return redirect()->route('highscores');
+            return redirect()->route('game');
+
+        } elseif ($action === "Logout") {
+            $request->session()->flush();
+            return redirect()->route('login');
         }
     }
 }
