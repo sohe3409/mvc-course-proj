@@ -20,7 +20,7 @@ class LoginController extends Controller
 
     public function handle(Request $request)
     {
-        $user = new Users;
+        $user = new Users();
         $action = $request->input('action');
 
         if ($action === "login") {
@@ -38,9 +38,7 @@ class LoginController extends Controller
                   'message' => "The username or password is wrong."
                 ]);
             }
-
         } elseif ($action === "reg") {
-
             if ($user->checkUsername($request->input('username')) === false) {
                 return back()->withErrors([
                     'message' => "This username is already taken."
@@ -59,7 +57,6 @@ class LoginController extends Controller
             $user->save();
 
             return redirect()->route('game');
-
         } elseif ($action === "Logout") {
             $request->session()->flush();
             return redirect()->route('login');

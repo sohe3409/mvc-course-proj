@@ -1,0 +1,9 @@
+C:\cygwin64\home\Sofia\dbwebb-kurser\mvc\me\proj\app\Http\Controllers\BetsController.php:16	Avoid unused parameters such as '$request'.
+C:\cygwin64\home\Sofia\dbwebb-kurser\mvc\me\proj\app\Http\Controllers\BetsController.php:36	The method startGame() has a Cyclomatic Complexity of 11. The configured cyclomatic complexity threshold is 10.
+C:\cygwin64\home\Sofia\dbwebb-kurser\mvc\me\proj\app\Http\Controllers\BetsController.php:77	The method startGame uses an else expression. Else clauses are basically not necessary and you can simplify the code by not using them.
+C:\cygwin64\home\Sofia\dbwebb-kurser\mvc\me\proj\app\Http\Controllers\GameController.php:16	Avoid unused parameters such as '$request'.
+C:\cygwin64\home\Sofia\dbwebb-kurser\mvc\me\proj\app\Http\Controllers\GameController.php:36	The method startGame() has a Cyclomatic Complexity of 11. The configured cyclomatic complexity threshold is 10.
+C:\cygwin64\home\Sofia\dbwebb-kurser\mvc\me\proj\app\Http\Controllers\GameController.php:77	The method startGame uses an else expression. Else clauses are basically not necessary and you can simplify the code by not using them.
+C:\cygwin64\home\Sofia\dbwebb-kurser\mvc\me\proj\app\Models\Users.php:26	Avoid using static access to class 'App\Models\Users' in method 'getAllUsers'.
+C:\cygwin64\home\Sofia\dbwebb-kurser\mvc\me\proj\app\Models\Users.php:40	Avoid using static access to class 'App\Models\Users' in method 'getUserData'.
+C:\cygwin64\home\Sofia\dbwebb-kurser\mvc\me\proj\app\Models\Users.php:82	Avoid using static access to class 'App\Models\Users' in method 'checkUsername'.

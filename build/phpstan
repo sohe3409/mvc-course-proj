@@ -1,0 +1,28 @@
+ ------ -------------------------------------------------------------- 
+ [32m Line [39m [32m app/Http/Controllers/LoginController.php                     [39m 
+ ------ -------------------------------------------------------------- 
+  54     Access to an undefined property App\Models\Users::$username.  
+  55     Access to an undefined property App\Models\Users::$password.  
+  56     Access to an undefined property App\Models\Users::$coins.     
+ ------ -------------------------------------------------------------- 
+
+ ------ -------------------------------------------------------------- 
+ [32m Line [39m [32m app/Models/Users.php                                         [39m 
+ ------ -------------------------------------------------------------- 
+  28     Access to an undefined property App\Models\Users::$username.  
+  29     Access to an undefined property App\Models\Users::$password.  
+  43     Access to an undefined property App\Models\Users::$username.  
+  44     Access to an undefined property App\Models\Users::$coins.     
+  83     Access to an undefined property App\Models\Users::$username.  
+ ------ -------------------------------------------------------------- 
+
+ ------ ---------------------------------------------------------------------- 
+ [32m Line [39m [32m tests/Unit/DiceTest.php                                              [39m 
+ ------ ---------------------------------------------------------------------- 
+  55     Call to an undefined method App\Models\Dice\DiceHand::getLastRoll().  
+ ------ ---------------------------------------------------------------------- 
+
+[37;41m                                                                                                                  [39;49m
+[37;41m [ERROR] Found 9 errors                                                                                           [39;49m
+[37;41m                                                                                                                  [39;49m
+

@@ -10,7 +10,6 @@ use App\Models\Dice\DiceHand;
 use App\Models\Dice\GraphicalDice;
 use App\Models\Users;
 
-
 class GameController extends Controller
 {
 
@@ -19,13 +18,13 @@ class GameController extends Controller
         $info = [];
 
         if (session("account")) {
-          session(['user' => 0]);
-          session(['computer' => 0]);
-          session(['score' => 0]);
-          session(['compScore' => 0]);
+            session(['user' => 0]);
+            session(['computer' => 0]);
+            session(['score' => 0]);
+            session(['compScore' => 0]);
 
-          $user = new Users;
-          $info = $user->getUserData(session("account"));
+            $user = new Users;
+            $info = $user->getUserData(session("account"));
         }
 
         return view('game', [
@@ -83,14 +82,14 @@ class GameController extends Controller
             }
 
             $sum = ("Computer score: "  . $compScore);
-        } elseif ($action === "End game" || $action === "Logout") {
+        } elseif ($action === "End game") {
             $request->session()->flush();
             return view('message', [
                 'message' => "Game ended!",
             ]);
         }
 
-        $user = new Users;
+        $user = new Users();
         $info = $user->getUserData(session("account"));
 
         return view('diceGame', [

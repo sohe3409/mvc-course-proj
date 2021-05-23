@@ -12,8 +12,8 @@ class HighscoreController extends Controller
 {
     public function view()
     {
-        $hsDb = new Highscores;
-        $uDb = new Users;
+        $hsDb = new Highscores();
+        $uDb = new Users();
 
         $scores = $hsDb->getHighscores();
         $users = $uDb->getTopTen();
