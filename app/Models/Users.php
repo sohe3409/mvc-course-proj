@@ -50,6 +50,20 @@ class Users extends Model
         return $users;
     }
 
+    public function getTopTen()
+    {
+        $users = [];
+
+        /* @phpstan-ignore-next-line */
+        foreach (Users::orderBy('coins', 'DESC')->get() as $user) {
+            array_push($users, [
+                'username' => $user->username,
+                'coins' => $user->coins
+            ]);
+        }
+
+        return array_slice($users, 0, 10);
+    }
 
     public function checkUser($login)
     {

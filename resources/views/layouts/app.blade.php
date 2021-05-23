@@ -27,5 +27,8 @@
         @endif
     </nav>
     @yield('content')
+    <footer>
+        <p>Game 21 Online Betting ©</p>
+    </footer>
 </body>
 </html>

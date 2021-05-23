@@ -12,14 +12,17 @@ class HighscoreController extends Controller
 {
     public function view()
     {
-        $hsDb = new Highscores();
+        $hsDb = new Highscores;
+        $uDb = new Users;
 
         $scores = $hsDb->getHighscores();
+        $users = $uDb->getTopTen();
 
 
         return view('highscores', [
             'title' => "Highscores",
-            'scores' => $scores
+            'scores' => $scores,
+            'users' => $users
         ]);
     }
 

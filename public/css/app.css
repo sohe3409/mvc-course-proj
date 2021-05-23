@@ -31832,9 +31832,11 @@ video {
 }
 
 body {
-  z-index: 0;
   background-color: #000;
   font-size: 1.3rem;
+  height: 100%;
+  min-height: 100vh;
+  margin: 0;
 }
 
 nav {
@@ -31922,12 +31924,13 @@ h1 {
 
 .container {
   margin-top: 10vh;
-  margin: 2em;
+  margin-left: 4em;
   height: 600px;
   width: 600px;
+  background: linear-gradient(to bottom, #ffd971, #ffc524);
   border-radius: 20px;
   background-color: #fff;
-  padding: 1em;
+  padding: 2em;
 }
 
 .result {
@@ -32064,6 +32067,16 @@ label.two{
 input[type="radio"]:checked + label{
   background: #ffc524;
   color: #fff;
+}
+
+footer {
+  color: #eee;
+  padding: 1em;
+  text-align: center;
+  position:fixed;
+  bottom:0;
+  width:100%;
+  opacity: 0.6;
 }
 
 @media (max-width: 668px) {
