@@ -1,12 +1,12 @@
 Travis CI
 
-[![Build Status](https://travis-ci.org/sohe3409/mvc-course-framework.svg?branch=master)](https://travis-ci.org/sohe3409/mvc-course-framework)
+[![Build Status](https://travis-ci.org/sohe3409/mvc-course-proj.svg?branch=master)](https://travis-ci.org/sohe3409/mvc-course-proj)
 
 
 Scrutinizer CI
 
-[![Code Coverage](https://scrutinizer-ci.com/g/sohe3409/mvc-course-framework/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/sohe3409/mvc-course-framework/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/sohe3409/mvc-course-proj/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/sohe3409/mvc-course-proj/?branch=master)
 
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/sohe3409/mvc-course-framework/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/sohe3409/mvc-course-framework/?branch=master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/sohe3409/mvc-course-proj/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/sohe3409/mvc-course-proj/?branch=master)
 
-[![Build Status](https://scrutinizer-ci.com/g/sohe3409/mvc-course-framework/badges/build.png?b=master)](https://scrutinizer-ci.com/g/sohe3409/mvc-course-framework/build-status/master)
+[![Build Status](https://scrutinizer-ci.com/g/sohe3409/mvc-course-proj/badges/build.png?b=master)](https://scrutinizer-ci.com/g/sohe3409/mvc-course-proj/build-status/master)
