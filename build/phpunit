@@ -1,3 +1,99 @@
 PHPUnit 9.5.4 by Sebastian Bergmann and contributors.
 
-FF
+FFFFFF.....E.                                                     13 / 13 (100%)
+
+Time: 02:18.804, Memory: 36.00 MB
+
+There was 1 error:
+
+1) App\Models\Dice\ClassDiceTest::testHandGetLastRoll
+Error: Call to undefined method App\Models\Dice\DiceHand::getLastRoll()
+
+C:\cygwin64\home\Sofia\dbwebb-kurser\mvc\me\proj\tests\Unit\DiceTest.php:55
+
+--
+
+There were 6 failures:
+
+1) App\Http\Controllers\DiceControllersTest::testGame21StartPage
+Failed asserting that '<!doctype html>\r\n
+<html>\r\n
+    <meta charset="utf-8">\r\n
+    <title>Game app</title>\r\n
+    <meta name="viewport" content="width=device-width, initial-scale=1">\r\n
+    <link rel="icon" href="http://localhost/favicon.ico">\r\n
+    <link rel="stylesheet" type="text/css" href="http://localhost/css/app.css">\r\n
+</head>\r\n
+\r\n
+<body>\r\n
+    <nav>\r\n
+        <ul>\r\n
+          <li>\r\n
+            <a href="http://localhost/game">Game 21</a>\r\n
+          </li>\r\n
+          <li>\r\n
+              <a href="http://localhost/highscores">High Scores</a>\r\n
+          </li>\r\n
+        </ul>\r\n
+                    <a style="text-align: center; height: 50px" class="logout" href="http://localhost/login">Login</a>\r\n
+            </nav>\r\n
+    <div class="content">\r\n
+        <div class="container">\r\n
+        <p>Logga in!</p>\r\n
+    </div>\r\n
+    \r\n
+\r\n
+\r\n
+\r\n
+</div>\r\n
+    <footer>\r\n
+        <p>Game 21 Online Betting ©</p>\r\n
+    </footer>\r\n
+</body>\r\n
+</html>\r\n
+' contains "Choose one or two dices to play with!".
+
+C:\cygwin64\home\Sofia\dbwebb-kurser\mvc\me\proj\vendor\laravel\framework\src\Illuminate\Testing\TestResponse.php:406
+C:\cygwin64\home\Sofia\dbwebb-kurser\mvc\me\proj\tests\Unit\ControllerGameTest.php:18
+
+2) App\Http\Controllers\DiceControllersTest::testPostGame21Start
+Expected status code 200 but received 500.
+Failed asserting that 200 is identical to 500.
+
+C:\cygwin64\home\Sofia\dbwebb-kurser\mvc\me\proj\vendor\laravel\framework\src\Illuminate\Testing\TestResponse.php:187
+C:\cygwin64\home\Sofia\dbwebb-kurser\mvc\me\proj\tests\Unit\ControllerGameTest.php:27
+
+3) App\Http\Controllers\DiceControllersTest::testPostGame21Roll
+Expected status code 200 but received 500.
+Failed asserting that 200 is identical to 500.
+
+C:\cygwin64\home\Sofia\dbwebb-kurser\mvc\me\proj\vendor\laravel\framework\src\Illuminate\Testing\TestResponse.php:187
+C:\cygwin64\home\Sofia\dbwebb-kurser\mvc\me\proj\tests\Unit\ControllerGameTest.php:36
+
+4) App\Http\Controllers\DiceControllersTest::testPostGame21StopLoose
+Expected status code 200 but received 500.
+Failed asserting that 200 is identical to 500.
+
+C:\cygwin64\home\Sofia\dbwebb-kurser\mvc\me\proj\vendor\laravel\framework\src\Illuminate\Testing\TestResponse.php:187
+C:\cygwin64\home\Sofia\dbwebb-kurser\mvc\me\proj\tests\Unit\ControllerGameTest.php:46
+
+5) App\Http\Controllers\DiceControllersTest::testPostGame21StopWon
+Expected status code 200 but received 500.
+Failed asserting that 200 is identical to 500.
+
+C:\cygwin64\home\Sofia\dbwebb-kurser\mvc\me\proj\vendor\laravel\framework\src\Illuminate\Testing\TestResponse.php:187
+C:\cygwin64\home\Sofia\dbwebb-kurser\mvc\me\proj\tests\Unit\ControllerGameTest.php:56
+
+6) App\Http\Controllers\DiceControllersTest::testPostGame21New
+Expected status code 200 but received 500.
+Failed asserting that 200 is identical to 500.
+
+C:\cygwin64\home\Sofia\dbwebb-kurser\mvc\me\proj\vendor\laravel\framework\src\Illuminate\Testing\TestResponse.php:187
+C:\cygwin64\home\Sofia\dbwebb-kurser\mvc\me\proj\tests\Unit\ControllerGameTest.php:64
+
+ERRORS!
+Tests: 13, Assertions: 19, Errors: 1, Failures: 6.
+
+Generating code coverage report in Clover XML format ... done [00:00.069]
+
+Generating code coverage report in HTML format ... done [00:00.557]
