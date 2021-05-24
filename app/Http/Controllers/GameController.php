@@ -8,7 +8,10 @@ use Illuminate\Http\Request;
 use App\Models\Dice\Bets;
 use App\Models\Dice\Dice;
 use App\Models\Dice\DiceHand;
+use App\Models\Dice\StatsHistogram;
 use App\Models\Users;
+
+use App\Models\Stats;
 
 class GameController extends Controller
 {
@@ -59,6 +62,7 @@ class GameController extends Controller
             $compScore = $this->roll();
             $new = 0;
             $bets = new Bets();
+            $stats = new StatsHistogram();
             $bets->amount = session('bet');
 
             if ($score > 21) {
@@ -74,12 +78,14 @@ class GameController extends Controller
                 $current += 1;
                 session(['computer' => $current]);
                 $bets->update("lost");
+                $stats->lost();
             } else {
                 $message = "Congrats, you won!";
                 $current = session('user');
                 $current += 1;
                 session(['user' => $current]);
                 $bets->update("won");
+                $stats->won($score);
             }
             session(['score' => 0]);
             session(['compScore' => 0]);

@@ -27,7 +27,7 @@
                 <p style="font-size: 1.7em; font-weight: bolder">{{ session('bet') }}</p>
             </span>
             @elseif( $user['coins'] > 0 && session('score') == 0)
-                <p style="font-size: 1rem; color: red">If you don't bet and win you will gain 1 coin.</p>
+                <p style="font-size: 1rem; color: red">If you don't bet and win, you will gain 1 coin.</p>
                 <br>
                 <form action="{{ url('/game') }}" method="post">
                     @csrf
@@ -64,6 +64,7 @@
                     <img style="height: 110px" src="{{ URL::asset($img)}}" alt="Image"/>
                 @endforeach
                 <h1><?= $message ?></h1><br>
+
 
             </div>
 
@@ -106,8 +107,34 @@
         </div>
 
         <div style="margin-right: 0; margin-left: 2em" class="acc-container">
-            <h1>Games won in a row:</h1>
-            <p>Histogram here</p>
+            <h1>Your winning stats:</h1>
+
+            <p>21</p>
+            <div class="bar">
+              <div class="skills html">90%</div>
+            </div>
+
+            <p>Winning stats</p>
+            <div class="bar">
+              <div class="skills css">80%</div>
+            </div>
+            <br>
+            <h1>All Users:</h1>
+
+            <p>21</p>
+            <div class="bar">
+              <div class="skills js">65%</div>
+            </div>
+
+            <p>Winning stats</p>
+            <div class="bar">
+              <div class="skills php">60%</div>
+            </div>
+
+
+
+
+
         </div>
     </div>
     <div style="text-align: center; color: #fff">
@@ -118,9 +145,8 @@
             <br>
             <form action="{{ url('/highscores') }}" method="post">
                 @csrf
-                <label for="name">Your name: </label>
-                <input type="text" id="username" name="username" minlength="3" maxlength="10" required>
-                <input type="hidden" name="coins" value="{{ $highscore }}">
+                <label for="name">Your High Score: {{ $highscore }}</label>
+                <input type="hidden" name="score" value="{{ $highscore }}">
                 <input style="color: #000" class="button" type="submit" name="action" value="Save score">
             </form>
         @else

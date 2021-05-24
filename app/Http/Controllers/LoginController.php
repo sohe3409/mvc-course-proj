@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use App\Models\Users;
+use App\Models\Stats;
 
 class LoginController extends Controller
 {
@@ -55,6 +56,14 @@ class LoginController extends Controller
             $user->password = $request->input('password');
             $user->coins = 10;
             $user->save();
+
+            $stats = new Stats();
+            $stats->username = $request->input('username');
+            $stats->played = 0;
+            $stats->won = 0;
+            $stats->tweone = 0;
+            $stats->save();
+
 
             return back()->withErrors([
                 'message' => "You are now a member! Login to start playing."

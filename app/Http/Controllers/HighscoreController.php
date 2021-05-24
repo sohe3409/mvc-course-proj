@@ -30,7 +30,7 @@ class HighscoreController extends Controller
     {
         $hsDb = new Highscores();
 
-        $hsDb->username = $request->input('username');
+        $hsDb->username = session('account');
         $hsDb->score = $request->input('score');
         $hsDb->save();
 

@@ -6,12 +6,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
-* Columns in the table Books
+* Columns in the table Users
 *
-* @property string $isbn
-* @property string $author
-* @property string $title
-* @property string $picture
+* @property string $username
+* @property string $password
 */
 class Users extends Model
 {
