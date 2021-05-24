@@ -7,7 +7,7 @@
         <h1>Welcome {{ $user['username'] }}!</h1>
         <hr class="hr-two">
         <p>Your amount of coins: </p>
-        <span class="coins">
+        <span style="text-align: center">
             <img style="height: 60px; margin-right: 3px; padding: 0.3em" src="{{ URL::asset('images/coin.jpg')}}">
             <p style="font-size: 1.7em; font-weight: bolder">{{ $user['coins'] }}</p>
         </span>

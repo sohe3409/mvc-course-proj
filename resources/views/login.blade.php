@@ -2,12 +2,13 @@
 
 @section('content')
 
+
+<div style="width: 100%; text-align: center; height: 6vh; margin-top: 4vh">
+  @foreach ($errors->all() as $error)
+  <p style="color: #fff">{{ $error }}</p>
+  @endforeach
+</div>
 <div class="content">
-
-    @foreach ($errors->all() as $error)
-        <p style="color: #fff">{{ $error }}</p>
-    @endforeach
-
     <div class="large-container" style="background: url({{ URL::asset('images/coins.jpg')}})">
         <div class="cover">
               <!-- Login-->

@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Routing\Redirector;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Dice\Bets;
 use App\Models\Dice\Dice;
 use App\Models\Dice\DiceHand;
-use App\Models\Dice\GraphicalDice;
 use App\Models\Users;
 
 class GameController extends Controller
@@ -22,6 +22,7 @@ class GameController extends Controller
             session(['computer' => 0]);
             session(['score' => 0]);
             session(['compScore' => 0]);
+            session(['bet' => 0]);
 
             $user = new Users;
             $info = $user->getUserData(session("account"));
@@ -36,16 +37,16 @@ class GameController extends Controller
     public function startGame(Request $request)
     {
         $action = $request->input('action');
+        $betStatus = "none";
         $message = "";
         $result = [];
 
         if ($action === "Start!") {
             session(['dices' => $request->input('dices')]);
-            $hand = new DiceHand((int)session('dices'));
-            $hand->roll();
-            $result = $hand->result;
-            $sum = $hand->sum;
-        } elseif ($action === "Roll again") {
+        } elseif ($action === "BET") {
+            session(['bet' => (int)$request->input('bet')]);
+            $betStatus = "make";
+        } elseif ($action === "Roll") {
             $hand = new DiceHand((int)session('dices'));
             $hand->roll();
             $result = $hand->result;
@@ -53,14 +54,12 @@ class GameController extends Controller
         } elseif ($action === "New round") {
             session(['score' => 0]);
             session(['compScore' => 0]);
-            $hand = new DiceHand((int)session('dices'));
-            $hand->roll();
-            $result = $hand->result;
-            $sum = $hand->sum;
         } elseif ($action === "Stop") {
             $score = $request->input('score');
             $compScore = $this->roll();
             $new = 0;
+            $bets = new Bets();
+            $bets->amount = session('bet');
 
             if ($score > 21) {
                 $new = $score - 21;
@@ -74,19 +73,21 @@ class GameController extends Controller
                 $current = session('computer');
                 $current += 1;
                 session(['computer' => $current]);
+                $bets->update("lost");
             } else {
-                $message = "Congratulations, you won!";
+                $message = "Congrats, you won!";
                 $current = session('user');
                 $current += 1;
                 session(['user' => $current]);
+                $bets->update("won");
             }
+            session(['score' => 0]);
+            session(['compScore' => 0]);
+            session(['bet' => 0]);
 
             $sum = ("Computer score: "  . $compScore);
         } elseif ($action === "End game") {
-            $request->session()->flush();
-            return view('message', [
-                'message' => "Game ended!",
-            ]);
+            return redirect()->route('game');
         }
 
         $user = new Users();
@@ -94,10 +95,10 @@ class GameController extends Controller
 
         return view('diceGame', [
             'message' => $message,
-            'sum' => $sum ?? "def",
-            'result' => $result ?? "def",
-            'compScore' => $compScore ?? "def",
-            'user' => $info[0] ?? "def"
+            'sum' => $sum ?? null,
+            'result' => $result ?? null,
+            'compScore' => $compScore ?? null,
+            'user' => $info[0] ?? null
         ]);
     }
 

@@ -3,100 +3,129 @@
 @section('content')
     <div class="content">
         <div class="acc-container">
+            <?php
+            $coins = $user['coins'];
+            if (session('bet') >= 2) {
+                $coins = $user['coins'] - session('bet');
+            }?>
+
             <h1>Make a bet below!</h1>
             <hr class="hr-two">
             <p>Your amount of coins: </p>
-            <span class="coins">
-                <img style="height: 60px; margin-right: 3px; padding: 0.3em" src="{{ URL::asset('images/coin.jpg')}}">
-                <p style="font-size: 1.7em; font-weight: bolder">{{ $user['coins'] }}</p>
+            <span style="text-align: center">
+                <img style="height: 60px;padding: 0.3em" src="{{ URL::asset('images/coin.jpg')}}">
+                <p style="font-size: 1.7em; font-weight: bolder">{{ $coins }}</p>
             </span>
-            @if( $user['coins'] > 0)
+            @if(session('bet') >= 2)
+            @php
+            $coins = $user['coins'] - session('bet');
+            @endphp
+            <br>
+            <p>Your bet: </p>
+            <span style="text-align: center">
+                <img style="height: 60px;padding: 0.3em" src="{{ URL::asset('images/coin.jpg')}}">
+                <p style="font-size: 1.7em; font-weight: bolder">{{ session('bet') }}</p>
+            </span>
+            @elseif( $user['coins'] > 0 && session('score') == 0)
+                <p style="font-size: 1rem; color: red">If you don't bet and win you will gain 1 coin.</p>
                 <br>
-                <form action="{{ url('/highscores') }}" method="post">
+                <form action="{{ url('/game') }}" method="post">
                     @csrf
                     <label for="bet">Amount of coins:  </label>
-                    <input type="number" style:"margin-left: 10px" name="bet" min="1" max="{{ $user['coins'] }}" required><br>
-
+                    <input type="number" style:"margin-left: 10px" name="bet" min="2" max="{{ $user['coins'] }}" required><br>
                     <input class="start" style:"width: 100%" type="submit" name="action" value="BET">
                 </form>
+
             @else
-                <p class="score-msg">You must have won more rounds than the computer to save your score.</p>
+                <p class="score-msg">You can minimum bet 2 coins and maximum bet the amount you have.</p>
             @endif
         </div>
+
         <div class="game-container">
             <?php
             $current = session('score');
             $current += (int)$sum;
             session(['score' => $current]);
             $total = session('score');
-            if ($total > 21) {
-                $status = "Your score: " . $total . "<br> You lost!";
-                $current = session('computer');
-                $current += 1;
-                session(['computer' => $current]);
-            } else if ($total === 21) {
-                $status = "Your score: " . $total . "<br>Congratulations, you won!";
-                $current = session('user');
-                $current += 1;
-                session(['user' => $current]);
-            } else {
-                $status = "Total score: " . $total;
-            }?>
-            <div class="result">
+            $status = "Total score: " . $total;
+            ?>
+
+            <div class="g-one">
+                <p>Rounds won:</p>
+                <p>You: <?= session('user') ?></p>
+                <p>Computer: <?= session('computer') ?></p>
+            </div>
+
+            <div class="g-two">
                 @foreach ($result as $res)
                     @php
                         $img = "images/" . $res . ".jpg"
                     @endphp
-                    <img class:"die" src="{{ URL::asset($img)}}" alt="Image"/>
+                    <img style="height: 110px" src="{{ URL::asset($img)}}" alt="Image"/>
                 @endforeach
-                <p><?= $status ?></p>
-                <p><?= $message ?></p>
+                <h1><?= $message ?></h1><br>
+
             </div>
 
-
-            <form action="{{ url('/game') }}" method="post">
-                @csrf
-                <input class="button" type="submit" name="action" value="Roll again">
-            </form>
-            <br>
-            <form action="{{ url('/game') }}" method="post">
-                @csrf
-                <input type="hidden" name="score" value="<?= $total ?>">
-                <input class="button" type="submit" name="action" value="Stop">
-            </form>
-            <br>
-            <form action="{{ url('/game') }}" method="post">
-                @csrf
-                <input class="button" type="submit" name="action" value="New round">
-            </form>
-
-            <p>Rounds won:</p>
-            <p>You: <?= session('user') ?></p>
-            <p>Computer: <?= session('computer') ?></p>
-
-            <form action="{{ url('/game') }}" method="post">
-                @csrf
-                <input class="button" type="submit" name="action" value="End game">
-            </form>
-            <br>
-            <div>
-                @php
-                $highscore = (session('user') - session('computer')) * 10;
-                @endphp
-                @if($highscore > 0)
-                    <br>
-                    <form action="{{ url('/highscores') }}" method="post">
-                        @csrf
-                        <label for="name">Your name: </label>
-                        <input type="text" id="username" name="username" minlength="3" maxlength="10" required>
-                        <input type="hidden" name="coins" value="{{ $highscore }}">
-                        <input class="button" type="submit" name="action" value="Save score">
-                    </form>
+            <div class="g-three">
+                @if ($compScore)
+                    <p>Computers score: <?= $compScore ?></p>
                 @else
-                    <br>
-                    <p class="score-msg">You must have won more rounds than the computer to save your score.</p>
+                    <p><?= $status ?></p>
                 @endif
             </div>
+
+            <div class="g-four">
+                <form action="{{ url('/game') }}" method="post">
+                    @csrf
+                    <input class="button" type="submit" name="action" value="New round">
+                </form>
+                <br>
+                <form action="{{ url('/game') }}" method="post">
+                    @csrf
+                    <input class="button" type="submit" name="action" value="End game">
+                </form>
+                <br>
+            </div>
+
+            <div class="g-six">
+                @if ($total < 21)
+                <form action="{{ url('/game') }}" method="post">
+                    @csrf
+                    <input class="button" type="submit" name="action" value="Roll">
+                </form>
+                @endif
+                <br>
+                <form action="{{ url('/game') }}" method="post">
+                    @csrf
+                    <input type="hidden" name="score" value="<?= $total ?>">
+                    <input class="button" type="submit" name="action" value="Stop">
+                </form>
+            </div>
+
         </div>
+
+        <div style="margin-right: 0; margin-left: 2em" class="acc-container">
+            <h1>Games won in a row:</h1>
+            <p>Histogram here</p>
+        </div>
+    </div>
+    <div style="text-align: center; color: #fff">
+        @php
+        $highscore = (session('user') - session('computer')) * 10;
+        @endphp
+        @if($highscore > 0)
+            <br>
+            <form action="{{ url('/highscores') }}" method="post">
+                @csrf
+                <label for="name">Your name: </label>
+                <input type="text" id="username" name="username" minlength="3" maxlength="10" required>
+                <input type="hidden" name="coins" value="{{ $highscore }}">
+                <input style="color: #000" class="button" type="submit" name="action" value="Save score">
+            </form>
+        @else
+            <br>
+            <p class="score-msg">You must have won more rounds than the computer to save your score.</p>
+        @endif
     </div>
 @endsection

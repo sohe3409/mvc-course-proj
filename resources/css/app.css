@@ -15,7 +15,7 @@ nav {
     display: flex;
     justify-content: space-between;
     color: #fff;
-    background-color: #143558;
+    background-color: #022a3c;
     margin-bottom: 1em 3em;
     height: 5em;
 }
@@ -48,7 +48,7 @@ h1 {
 }
 
 .large-container {
-    margin-top: 10vh;
+    margin-top: 4vh;
     width: 70%;
     height: 600px;
     display: flex;
@@ -58,27 +58,15 @@ h1 {
     border-radius: 40px;
 }
 
-.game-container {
-    width: 50%;
+.container {
+    margin-top: 10vh;
+    margin-left: 4em;
     height: 600px;
-    background-color: #fff;
-    display: grid;
-    margin-top: 10vh;
-    border-radius: 40px;
-    padding: 2em;
-}
-
-.acc-container {
-    color: #333;
-    margin-top: 10vh;
-    margin-right: 2em;
-    width: 20%;
-    padding: 2em;
+    width: 600px;
+    background: linear-gradient(to bottom, #ffd971, #ffc524);
     border-radius: 20px;
     background-color: #fff;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+    padding: 2em;
 }
 
 .container-start {
@@ -94,27 +82,69 @@ h1 {
 }
 
 
-.container {
+.acc-container {
+    color: #333;
     margin-top: 10vh;
-    margin-left: 4em;
-    height: 600px;
-    width: 600px;
-    background: linear-gradient(to bottom, #ffd971, #ffc524);
+    margin-right: 2em;
+    width: 20%;
+    padding: 2em;
     border-radius: 20px;
     background-color: #fff;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.game-container {
+    width: 40%;
+    height: 600px;
+    background-color: #fff;
+    display: grid;
+    grid-template-rows: 30% 30% 40%;
+    grid-template-columns: 30% 40% 30%;
+    margin-top: 10vh;
+    border-radius: 40px;
     padding: 2em;
 }
 
-.result {
-    height: 130px;
-    width: 100%;
+.g-one {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.g-two {
+    grid-column: 2;
+    grid-row: 2;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     flex-direction: row;
 }
 
-.die {
-    height: 130px
+.g-three {
+    grid-column: 3;
+    grid-row: 1;
+    text-align: right;
+    color: green;
+    font-size: 1.5em;
+    font-weight: bolder;
+}
+
+.g-four {
+    grid-column: 1;
+    grid-row: 3;
+    margin-left: 2em;
+}
+
+.g-five {
+    grid-column: 2;
+    grid-row: 3;
+}
+
+.g-six {
+    grid-column: 3;
+    grid-row: 3;
+    text-align: right;
+    margin-right: 2em;
 }
 
 .cover {
@@ -159,7 +189,10 @@ input {
     padding: 0.5em;
 }
 
-
+.button {
+    padding: 2em;
+    background-color: red;
+}
 
 .button,
 .logout {
@@ -173,7 +206,7 @@ input {
 }
 
 .start {
-    background-color: #143558;
+    background-color: #022a3c;
     border: 3px #fff solid;
     color: #fff;
     width: 100%;
@@ -212,7 +245,6 @@ input {
     border-radius: 100px 0 0 100px;
 }
 
-
 label.one,
 label.two {
     color: #fff;
@@ -226,13 +258,13 @@ label.two {
 label.one{
     border-radius: 100px 0 0 100px;
     border-right: 1.5px #fff solid;
-    background: linear-gradient(to right, #143558, #ffc524);
+    background: linear-gradient(to right, #022a3c, #ffc524);
 }
 
 label.two{
     border-radius: 0 100px 100px 0;
     border-left: 1.5px #fff solid;
-    background: linear-gradient(to left, #143558, #ffc524);
+    background: linear-gradient(to left, #022a3c, #ffc524);
 }
 
 .section input[type="radio"]{

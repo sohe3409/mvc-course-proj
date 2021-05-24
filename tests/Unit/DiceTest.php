@@ -26,17 +26,6 @@ class ClassDiceTest extends TestCase
         $this->assertTrue($res1 === $res2);
     }
 
-    public function testDiceGraphical()
-    {
-        $dice = new GraphicalDice();
-        $res1 = $dice->roll();
-        $res2 = $dice->getLastRoll();
-        $res3 = $dice->graphical();
-        $res4 = "dice-" . (string)$dice->getLastRoll();
-        $this->assertTrue($res1 === $res2);
-        $this->assertTrue($res3 === $res4);
-    }
-
     public function testHandRoll()
     {
         $hand = new DiceHand();

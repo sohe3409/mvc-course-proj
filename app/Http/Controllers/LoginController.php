@@ -56,7 +56,10 @@ class LoginController extends Controller
             $user->coins = 10;
             $user->save();
 
-            return redirect()->route('game');
+            return back()->withErrors([
+                'message' => "You are now a member! Login to start playing."
+            ]);
+
         } elseif ($action === "Logout") {
             $request->session()->flush();
             return redirect()->route('login');

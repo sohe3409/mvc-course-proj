@@ -33,6 +33,30 @@ class Users extends Model
         return $users;
     }
 
+    public function checkUser($login)
+    {
+        $users = $this->getAllUsers();
+
+        foreach ($users as $user) {
+            if ($user['username'] === $login[0] && $user['password'] === $login[1]) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public function checkUsername($username)
+    {
+        foreach (Users::all() as $user) {
+            if ($username === $user->username) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     public function getUserData($username)
     {
         $users = [];
@@ -64,27 +88,21 @@ class Users extends Model
         return array_slice($users, 0, 10);
     }
 
-    public function checkUser($login)
+    public function getCoins($new)
     {
-        $users = $this->getAllUsers();
+        $user = Users::find(session('account'));
 
-        foreach ($users as $user) {
-            if ($user['username'] === $login[0] && $user['password'] === $login[1]) {
-                return true;
-            }
-        }
+        $user->coins = $new;
 
-        return false;
+        $user->save();
     }
 
-    public function checkUsername($username)
+    public function updateCoins($new)
     {
-        foreach (Users::all() as $user) {
-            if ($username === $user->username) {
-                return false;
-            }
-        }
+        $user = Users::where('username', session('account'))->first();
 
-        return true;
+        $user->coins = strval($new);
+
+        $user->save();
     }
 }
