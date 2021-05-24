@@ -32067,6 +32067,12 @@ input {
   margin-bottom: 0.5em;
 }
 
+.hr-thr {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
 .container-radio {
   color: #333;
   text-align: center;
@@ -32104,36 +32110,32 @@ input[type="radio"]:checked + label{
   color: #fff;
 }
 
-* {
-  box-sizing: border-box
-}
-
 .bar {
   width: 100%;
-  background-color: #ddd;
+  background-color: #eee;
 }
 
-.skills {
+.stats {
   text-align: right;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 8px;
+  padding-bottom: 8px;
   color: white;
 }
 
-.html {
-  width: 90%; background-color: #04AA6D;
+.u-o {
+  background-color: #04AA6D;
 }
 
-.css {
-  width: 80%; background-color: #2196F3;
+.u-t {
+  background-color: #2196F3;
 }
 
-.js {
-  width: 65%; background-color: #f44336;
+.a-o {
+  background-color: #f44336;
 }
 
-.php {
-  width: 60%; background-color: #808080;
+.a-t {
+  background-color: blue;
 }
 
 footer {

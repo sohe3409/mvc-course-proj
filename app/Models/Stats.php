@@ -28,8 +28,7 @@ class Stats extends Model
                 'username' => $user->username,
                 'played' => $user->played,
                 'won' => $user->won,
-                'tweone' => $user->tweone,
-                'lol' => session('account')
+                'tweone' => $user->tweone
             ]);
         }
 

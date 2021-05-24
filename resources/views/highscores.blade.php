@@ -37,12 +37,14 @@
                     <th>Rank</th>
                     <th>Username</th>
                     <th>Score</th>
+                    <th>Date</th>
                 </tr>
                 @foreach ($scores as $score)
                     <tr style="text-align: center">
                         <td>{{ $rank }}</td>
                         <td>{{ $score['username'] }}</td>
                         <td>{{ $score['score'] }}</td>
+                        <td>{{ $score['created_at'] }}</td>
                     </tr>
                     @php
                         $rank += 1

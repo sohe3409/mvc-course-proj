@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 
 /**
 * Columns in the table Highscores
@@ -19,7 +20,8 @@ class Highscores extends Model
 {
     use HasFactory;
 
-    public $timestamps = false;
+    public $timestamps = ["created_at"];
+    const UPDATED_AT = null;
 
     public function getHighscores()
     {
@@ -29,9 +31,9 @@ class Highscores extends Model
             array_push($scores, [
                 'username' => $score->username,
                 'score' => $score->score,
+                'created_at' => $score->created_at->format('d M Y')
             ]);
         }
-
         return array_slice($scores, 0, 10);
     }
 }

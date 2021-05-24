@@ -12,10 +12,11 @@ class HelloWorldController extends Controller
     public function hello($message = null)
     {
         $s = new Stats();
-        // $sh = new StatsHistogram();
+        $sh = new StatsHistogram();
+
         // $messaget = $sh->won(21);
         // $s->updateStats($messaget);
-        $message = $s->getUserData();
+        $message = $sh->getStats();
 
 
         return view('message', [

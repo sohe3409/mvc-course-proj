@@ -40,6 +40,7 @@ class GameController extends Controller
     public function startGame(Request $request)
     {
         $action = $request->input('action');
+        $stats = new StatsHistogram();
         $betStatus = "none";
         $message = "";
         $result = [];
@@ -62,7 +63,6 @@ class GameController extends Controller
             $compScore = $this->roll();
             $new = 0;
             $bets = new Bets();
-            $stats = new StatsHistogram();
             $bets->amount = session('bet');
 
             if ($score > 21) {
@@ -98,13 +98,15 @@ class GameController extends Controller
 
         $user = new Users();
         $info = $user->getUserData(session("account"));
+        $allstats = $stats->getStats();
 
         return view('diceGame', [
             'message' => $message,
             'sum' => $sum ?? null,
             'result' => $result ?? null,
             'compScore' => $compScore ?? null,
-            'user' => $info[0] ?? null
+            'user' => $info[0] ?? null,
+            'stats' => $allstats ?? null
         ]);
     }
 

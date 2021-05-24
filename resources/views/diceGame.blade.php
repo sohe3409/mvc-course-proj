@@ -77,6 +77,7 @@
             </div>
 
             <div class="g-four">
+                @if (session('score') == 0)
                 <form action="{{ url('/game') }}" method="post">
                     @csrf
                     <input class="button" type="submit" name="action" value="New round">
@@ -87,6 +88,7 @@
                     <input class="button" type="submit" name="action" value="End game">
                 </form>
                 <br>
+                @endif
             </div>
 
             <div class="g-six">
@@ -107,36 +109,32 @@
         </div>
 
         <div style="margin-right: 0; margin-left: 2em" class="acc-container">
-            <h1>Your winning stats:</h1>
-
-            <p>21</p>
+            <h1>Your winning statistics:</h1>
+            <hr class="hr-thr">
+            <p style="font-size: 1.1rem">Throw 21</p>
             <div class="bar">
-              <div class="skills html">90%</div>
+              <div class="stats u-o" style="width: {{ $stats['user21'] }}">{{ $stats['user21'] }}</div>
             </div>
 
-            <p>Winning stats</p>
+            <p style="font-size: 1.1rem">Winning statistic</p>
             <div class="bar">
-              <div class="skills css">80%</div>
+              <div class="stats u-t" style="width: {{ $stats['userWins'] }}">{{ $stats['userWins'] }}</div>
             </div>
             <br>
             <h1>All Users:</h1>
-
-            <p>21</p>
+            <hr class="hr-thr">
+            <p style="font-size: 1.1rem">Throw 21</p>
             <div class="bar">
-              <div class="skills js">65%</div>
+              <div class="stats a-o" style="width: {{ $stats['all21'] }}">{{ $stats['all21'] }}</div>
             </div>
 
-            <p>Winning stats</p>
+            <p style="font-size: 1.1rem">Winning statistic</p>
             <div class="bar">
-              <div class="skills php">60%</div>
+              <div class="stats a-t" style="width: {{ $stats['allWins'] }}">{{ $stats['allWins'] }}</div>
             </div>
-
-
-
-
-
         </div>
     </div>
+
     <div style="text-align: center; color: #fff">
         @php
         $highscore = (session('user') - session('computer')) * 10;
