@@ -32,30 +32,11 @@
             </div>
             <input class="start" type="submit" name="action" value="Start!">
         </form>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     </div>
     @else
     <div class="container">
         <p>Logga in!</p>
     </div>
     @endif
-
-
-
-
 </div>
 @endsection

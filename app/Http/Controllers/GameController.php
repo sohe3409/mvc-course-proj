@@ -27,7 +27,7 @@ class GameController extends Controller
             session(['compScore' => 0]);
             session(['bet' => 0]);
 
-            $user = new Users;
+            $user = new Users();
             $info = $user->getUserData(session("account"));
         }
 
@@ -41,15 +41,14 @@ class GameController extends Controller
     {
         $action = $request->input('action');
         $stats = new StatsHistogram();
-        $betStatus = "none";
         $message = "";
         $result = [];
 
         if ($action === "Start!") {
             session(['dices' => $request->input('dices')]);
+            $message = "The goal is to score as close to 21 as possible.";
         } elseif ($action === "BET") {
             session(['bet' => (int)$request->input('bet')]);
-            $betStatus = "make";
         } elseif ($action === "Roll") {
             $hand = new DiceHand((int)session('dices'));
             $hand->roll();

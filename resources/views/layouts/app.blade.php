@@ -3,8 +3,8 @@
     <meta charset="utf-8">
     <title>Game app</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="<?= url("/favicon.ico") ?>">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
+    <link rel="shortcut icon" href="{{ URL::asset('images/coin.jpg')}}">
 </head>
 
 <body>

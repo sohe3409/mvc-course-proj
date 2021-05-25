@@ -37,17 +37,6 @@ class ClassDiceTest extends TestCase
         }
     }
 
-    public function testHandGetLastRoll()
-    {
-        $hand = new DiceHand(2);
-        $hand->roll();
-        $res1 = $hand->getLastRoll();
-        $res2 = (string)$hand->dices[0]->getLastRoll() . ", " .
-        (string)$hand->dices[1]->getLastRoll() . ", " . " = " . (string)$hand->sum;
-
-        $this->assertEquals($res1, $res2);
-    }
-
     public function testHistogram()
     {
         $arr = [1,2,2];

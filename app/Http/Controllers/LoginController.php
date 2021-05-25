@@ -54,21 +54,21 @@ class LoginController extends Controller
 
             $user->username = $request->input('username');
             $user->password = $request->input('password');
-            $user->coins = 10;
+            /* @phpstan-ignore-next-line */
+            $user->coins = '10';
             $user->save();
 
             $stats = new Stats();
             $stats->username = $request->input('username');
-            $stats->played = 0;
-            $stats->won = 0;
-            $stats->tweone = 0;
+            $stats->played = '0';
+            $stats->won = '0';
+            $stats->tweone = '0';
             $stats->save();
 
 
             return back()->withErrors([
                 'message' => "You are now a member! Login to start playing."
             ]);
-
         } elseif ($action === "Logout") {
             $request->session()->flush();
             return redirect()->route('login');

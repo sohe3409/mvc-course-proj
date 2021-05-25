@@ -20,7 +20,6 @@ class Highscores extends Model
 {
     use HasFactory;
 
-    public $timestamps = ["created_at"];
     const UPDATED_AT = null;
 
     public function getHighscores()
