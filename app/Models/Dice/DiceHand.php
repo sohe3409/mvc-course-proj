@@ -18,7 +18,7 @@ class DiceHand
     {
         $this->amount = $amount - 1;
         for ($i = 0; $i <= $this->amount; $i++) {
-            $this->dices[$i] = new DiceHistogram();
+            $this->dices[$i] = new Dice();
         }
     }
 

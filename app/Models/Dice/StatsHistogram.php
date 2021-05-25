@@ -9,8 +9,6 @@ use App\Models\Stats;
  */
 class StatsHistogram extends Dice
 {
-    use HistogramTrait;
-
     public function won($score): void
     {
         $object = new Stats();

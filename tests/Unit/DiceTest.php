@@ -36,17 +36,4 @@ class ClassDiceTest extends TestCase
             && $hand->dices[$i]->getLastRoll() < 7);
         }
     }
-
-    public function testHistogram()
-    {
-        $arr = [1,2,2];
-        $dice = new DiceHistogram();
-        $dice->setHistogramSerie($arr);
-        $res2 = $dice->getHistogramSerie();
-        $res = $dice->printHistogram();
-        $res1 = "1: *<br>2: **<br>";
-
-        $this->assertEquals($res2, $arr);
-        $this->assertEquals($res1, $res);
-    }
 }
