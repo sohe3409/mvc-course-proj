@@ -18,9 +18,6 @@ This project was built with the framework Laravel and is the examinating project
 ### Login/Register
 To play Game 21 you have to be a registered user. When you load the website you will see the startpage, which displays two forms, login and register. If you are already a member you can login, otherwise you can make a new user. After you are logged in you are redirected to the game startpage which you also can reach from the navbar.
 
-To play Game 21 you have to be a registered user. When you load the website you will see the startpage, which displays two forms, login and register. If you are already a member you can login, otherwise you can make a new user. After you are logged in you are redirected to the game startpage which you also can reach from the navbar.
-
-
 ![test img](https://user-images.githubusercontent.com/71514079/119393584-6eeacb00-bcd1-11eb-8ec3-cd53307ec3c8.png)
 
 ### Choose dices
