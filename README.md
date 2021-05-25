@@ -17,7 +17,11 @@ This project was built with the framework Laravel and is the examinating project
 ## Game rules
 
 ### Login/Register
+<<<<<<< HEAD
 To play Game 21 you have to be a registered user. When you load the website you will see the startpage, which displays two forms, login and register. If you are already a member you can login, otherwise you can make a new user. After you are logged in you are redirected to the game startpage which you also can reach from the navbar.
+=======
+To play Game 21 you have to be a registered user. When you load the website you will see the startpage, which displays two forms, login and register. If you are already a member you can login, otherwise you can make a new user. After you are logged in you are redirected to the game startpage which you also can reach from the navbar. 
+>>>>>>> 3800f53bf2617b57b1d19f143953f0c4c9d69c0a
 
 ![test img](https://user-images.githubusercontent.com/71514079/119393584-6eeacb00-bcd1-11eb-8ec3-cd53307ec3c8.png)
 
@@ -38,7 +42,11 @@ You can reach the High Score page from the navbar even if you are not logged in.
 ![test img](https://user-images.githubusercontent.com/71514079/119393595-74481580-bcd1-11eb-8334-b775f4b9f157.png)
 
 ## Installation
+<<<<<<< HEAD
 Clone the repo and run:
+=======
+Clone the repo and run: 
+>>>>>>> 3800f53bf2617b57b1d19f143953f0c4c9d69c0a
 
 ```bash
 Composer install
