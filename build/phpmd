@@ -1,4 +1,0 @@
-C:\cygwin64\home\Sofia\dbwebb-kurser\mvc\me\proj\app\Http\Controllers\GameController.php:19	Avoid unused parameters such as '$request'.
-C:\cygwin64\home\Sofia\dbwebb-kurser\mvc\me\proj\app\Http\Controllers\GameController.php:40	The method startGame() has a Cyclomatic Complexity of 12. The configured cyclomatic complexity threshold is 10.
-C:\cygwin64\home\Sofia\dbwebb-kurser\mvc\me\proj\app\Http\Controllers\GameController.php:81	The method startGame uses an else expression. Else clauses are basically not necessary and you can simplify the code by not using them.
-C:\cygwin64\home\Sofia\dbwebb-kurser\mvc\me\proj\app\Models\Dice\StatsHistogram.php:24	The method won uses an else expression. Else clauses are basically not necessary and you can simplify the code by not using them.

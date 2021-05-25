@@ -36,7 +36,7 @@
                     <input type="text" maxlength="15" minlength="3" name="username" required>
 
                     <label>Enter Password</label>
-                    <input type="password" type="password" name="password" required>
+                    <input type="password" maxlength="15" minlength="6" type="password" name="password" required>
 
                     <label>Confirm Password</label>
                     <input type="password" type="password" name="confirm" required>

@@ -16,7 +16,7 @@ use App\Models\Stats;
 class GameController extends Controller
 {
 
-    public function playGame(Request $request)
+    public function playGame()
     {
         $info = [];
 
@@ -71,14 +71,14 @@ class GameController extends Controller
                 $new = 21 - $score;
             }
 
-            if (($score != 21 and $compScore == 21) or (($compScore - 21) < $new)) {
+            if (($score != 21 and $compScore == 21) || (($compScore - 21) < $new) || (($compScore - 21) == $new)) {
                 $message = "The Computer won!";
                 $current = session('computer');
                 $current += 1;
                 session(['computer' => $current]);
                 $bets->update("lost");
                 $stats->lost();
-            } else {
+            } elseif (($score == 21) || (($compScore - 21) > $new)) {
                 $message = "Congrats, you won!";
                 $current = session('user');
                 $current += 1;

@@ -21,7 +21,7 @@ class StatsHistogram extends Dice
         $result["won"] = (int)$stats['won'] + 1;
         if ($score == 21) {
             $result["tweone"] = (int)$stats['tweone'] + 1;
-        } else {
+        } elseif ($score != 21) {
             $result["tweone"] = $stats['tweone'];
         }
         $object->updateStats($result);
