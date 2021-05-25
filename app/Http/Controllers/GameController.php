@@ -57,6 +57,7 @@ class GameController extends Controller
         } elseif ($action === "New round") {
             session(['score' => 0]);
             session(['compScore' => 0]);
+            session(['bet' => 0]);
         } elseif ($action === "Stop") {
             $score = $request->input('score');
             $compScore = $this->roll();

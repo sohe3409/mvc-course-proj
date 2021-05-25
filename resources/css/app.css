@@ -37,7 +37,7 @@ p {
 
 h1 {
     font-weight: bolder;
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     padding: 5px;
 }
 
@@ -60,7 +60,8 @@ h1 {
 
 .container {
     margin-top: 10vh;
-    margin-left: 4em;
+    margin-left: 2em;
+    margin-right: 2em;
     height: 600px;
     width: 600px;
     background: linear-gradient(to bottom, #ffd971, #ffc524);
@@ -296,14 +297,14 @@ input[type="radio"]:checked + label{
 }
 
 .u-o {
-    background-color: #04AA6D;
+    background-color: #00e674;
 }
 
 .u-t {
     background-color: #2196F3;
 }
 .a-o {
-    background-color: #f44336;
+    background-color: #12d413;
 }
 .a-t {
     background-color: blue;

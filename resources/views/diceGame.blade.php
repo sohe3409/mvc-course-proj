@@ -149,7 +149,7 @@
             </form>
         @else
             <br>
-            <p class="score-msg">You must have won more rounds than the computer to save your score.</p>
+            <p class="score-msg" style="color: #ffd971">You must have won more rounds than the computer to save your high score. You get 10p for each round won more than the computer.</p>
         @endif
     </div>
 @endsection
