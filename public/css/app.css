@@ -31866,7 +31866,7 @@ p {
 
 h1 {
   font-weight: bolder;
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   padding: 5px;
 }
 
@@ -31889,7 +31889,8 @@ h1 {
 
 .container {
   margin-top: 10vh;
-  margin-left: 4em;
+  margin-left: 2em;
+  margin-right: 2em;
   height: 600px;
   width: 600px;
   background: linear-gradient(to bottom, #ffd971, #ffc524);

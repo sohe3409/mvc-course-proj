@@ -3,7 +3,8 @@
   <coverage processUncoveredFiles="true">
     <include>
         <directory suffix=".php">app/Http/Controllers/GameController.php</directory>
-        <directory suffix=".php">app/Models/Dice</directory>
+        <directory suffix=".php">app/Models/Dice/Dice.php</directory>
+        <directory suffix=".php">app/Models/Dice/DiceHand.php</directory>
     </include>
     <report>
         <clover outputFile="build/coverage.clover"/>

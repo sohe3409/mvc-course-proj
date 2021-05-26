@@ -30,7 +30,7 @@ class DiceControllersTest extends TestCase
     public function testPostGame21Roll()
     {
         $response = $this->post('/game', [
-            'action' => 'Roll again']);
+            'action' => 'Roll']);
 
         $response->assertStatus(500);
         $response->assertSee('Total score:');
